@@ -1,0 +1,66 @@
+{
+  "project": {
+    "name": "mylibrary",
+    "title": "MyLibrary",
+    "description": "A documentation sample project for Delphi",
+    "copyright": "Copyright © DevJet Software. All Rights Reserved.",
+    "homepage": "https://docinsight.github.io",
+    "repository": "https://github.com/docinsight/mylibrary"
+  },
+  "sources": {
+    "main": {
+      "type": "delphi",
+      "files": [
+        "packages/MyLibrary.dproj"
+      ],
+      "options": {
+        "compiler": "delphi_12",
+        "platform": "Win32"
+      }
+    }
+  },
+  "content": {
+    "docs": {
+      "title": "Guide",
+      "type": "markdown",
+      "root": "docs",
+      "mount": "/"
+    },
+    "api": {
+      "title": "API Reference",
+      "type": "delphi",
+      "source": "main"
+    }
+  },
+  "site": {
+    "title": "MyLibrary Docs",
+    "base_path": "/mylibrary/",
+    "robots": "noindex,follow",
+    "footer": {
+      "notice": "{{project.copyright}}\nBuilt with {{sys.docinsight}}. View the {{project.repository}}."
+    }
+  },
+  "output": {
+    "default_targets": [
+      "site"
+    ],
+    "targets": {
+      "site": {
+        "type": "html",
+        "path": "dist/docs/site",
+        "content": [
+          "docs",
+          "api"
+        ]
+      },
+      "chm": {
+        "type": "chm",
+        "path": "dist/docs/chm",
+        "content": [
+          "docs",
+          "api"
+        ]
+      }
+    }
+  }
+}

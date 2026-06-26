@@ -1,0 +1,20 @@
+/// <summary>
+///   Provides the runtime package for the MyLibrary DocInsight sample.
+/// </summary>
+package MyLibrary;
+
+{$R *.res}
+{$DESCRIPTION 'MyLibrary DocInsight sample package'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl;
+
+contains
+  MyLibrary.Types in '../src/MyLibrary.Types.pas',
+  MyLibrary.Collections in '../src/MyLibrary.Collections.pas',
+  MyLibrary.Collections.Lists in '../src/MyLibrary.Collections.Lists.pas',
+  MyLibrary.Collections.Dictionaries in '../src/MyLibrary.Collections.Dictionaries.pas';
+
+end.
