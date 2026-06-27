@@ -10,4 +10,4 @@ Use the <xref:api/mylibrary.collections/idictionary`2> interface when callers ne
 
 ## Performance
 
-Choose the collection that matches the access pattern: lists for ordered traversal and indexed access, sets for membership checks, and dictionaries for keyed lookup.
+Choose the collection that matches the access pattern: lists for ordered traversal and indexed access, and dictionaries for keyed lookup.
