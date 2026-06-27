@@ -1,27 +1,58 @@
 /// <summary>
-///   Defines shared generic helper types used by MyLibrary collections.
+///   Defines common generic helper types used by MyLibrary collections.
 /// </summary>
 /// <remarks>
-///   This unit contains small, documentation-friendly abstractions that mirror
-///   common collection concepts without exposing RTL comparer types directly.
-///   The key types are <see cref="IComparer&lt;T&gt;" />,
-///   <see cref="IEqualityComparer&lt;T&gt;" />, <see cref="TComparison&lt;T&gt;" />, and
-///   <see cref="TPair&lt;TKey,TValue&gt;" />.
+///   Use these types to pass custom comparison and equality behavior, and to
+///   represent dictionary entries without depending on RTL-specific types.
 /// </remarks>
 unit MyLibrary.Types;
 
 interface
 
+uses
+  System.SysUtils;
+
 type
   /// <summary>
-  ///   Defines a method that compares two values.
+  ///   The exception that is thrown when an argument value is not valid.
+  /// </summary>
+  EArgumentException = class(Exception);
+
+  /// <summary>
+  ///   The exception that is thrown when an argument is nil and the called
+  ///   method does not accept nil.
+  /// </summary>
+  EArgumentNilException = class(EArgumentException);
+
+  /// <summary>
+  ///   The exception that is thrown when an argument is outside the allowed
+  ///   range of values.
+  /// </summary>
+  EArgumentOutOfRangeException = class(EArgumentException);
+
+  /// <summary>
+  ///   The exception that is thrown when a method call is not valid for the
+  ///   object's current state.
+  /// </summary>
+  EInvalidOperationException = class(Exception);
+
+  /// <summary>
+  ///   The exception that is thrown when a specified key cannot be found in a
+  ///   dictionary.
+  /// </summary>
+  EKeyNotFoundException = class(Exception);
+
+  /// <summary>
+  ///   Defines a method that compares two values of the same type.
   /// </summary>
   /// <typeparam name="T">
   ///   The type of values to compare.
   /// </typeparam>
+  /// <seealso cref="TComparison&lt;T&gt;" />
   IComparer<T> = interface
     /// <summary>
-    ///   Compares two values and returns an indication of their relative order.
+    ///   Compares two values and returns a value that indicates their relative
+    ///   order.
     /// </summary>
     /// <param name="Left">
     ///   The first value to compare.
@@ -39,11 +70,12 @@ type
   end;
 
   /// <summary>
-  ///   Defines methods that test values for equality and produce hash codes.
+  ///   Defines methods to support equality comparison of values.
   /// </summary>
   /// <typeparam name="T">
   ///   The type of values to compare.
   /// </typeparam>
+  /// <seealso cref="IComparer&lt;T&gt;" />
   IEqualityComparer<T> = interface
     /// <summary>
     ///   Determines whether two values are equal.
@@ -60,7 +92,7 @@ type
     function Equals(const Left, Right: T): Boolean;
 
     /// <summary>
-    ///   Returns a hash code for a value.
+    ///   Returns a hash code for the specified value.
     /// </summary>
     /// <param name="Value">
     ///   The value for which to return a hash code.
@@ -72,8 +104,7 @@ type
   end;
 
   /// <summary>
-  ///   Represents a comparison callback for two values that can be used where an
-  ///   <see cref="IComparer&lt;T&gt;" /> would otherwise be required.
+  ///   Represents a method that compares two values of the same type.
   /// </summary>
   /// <typeparam name="T">
   ///   The type of values to compare.
@@ -85,9 +116,12 @@ type
   ///   The second value to compare.
   /// </param>
   /// <returns>
-  ///   A value less than zero, zero, or greater than zero to indicate relative
-  ///   order.
+  ///   A value less than zero if <paramref name="Left" /> is less than
+  ///   <paramref name="Right" />, zero if they are equal, or a value greater
+  ///   than zero if <paramref name="Left" /> is greater than
+  ///   <paramref name="Right" />.
   /// </returns>
+  /// <seealso cref="IComparer&lt;T&gt;" />
   TComparison<T> = reference to function(const Left, Right: T): Integer;
 
   /// <summary>
@@ -99,6 +133,7 @@ type
   /// <typeparam name="TValue">
   ///   The type of the value.
   /// </typeparam>
+  /// <seealso cref="MyLibrary.Collections.IDictionary&lt;TKey,TValue&gt;" />
   TPair<TKey, TValue> = record
   private
     FKey: TKey;
@@ -106,7 +141,8 @@ type
 
   public
     /// <summary>
-    ///   Initializes a new instance of the <c>TPair&lt;TKey,TValue&gt;</c> record.
+    ///   Initializes a new instance of the <see cref="TPair&lt;TKey,TValue&gt;" />
+    ///   record with the specified key and value.
     /// </summary>
     /// <param name="Key">
     ///   The key stored by the pair.
@@ -117,12 +153,12 @@ type
     constructor Create(const Key: TKey; const Value: TValue);
 
     /// <summary>
-    ///   Gets the key stored by the pair.
+    ///   Gets the key in the key/value pair.
     /// </summary>
     property Key: TKey read FKey;
 
     /// <summary>
-    ///   Gets the value stored by the pair.
+    ///   Gets the value in the key/value pair.
     /// </summary>
     property Value: TValue read FValue;
   end;
