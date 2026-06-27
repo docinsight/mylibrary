@@ -31,6 +31,8 @@ type
     FItems: System.Generics.Collections.TList<T>;
     FEqualityComparer: MyLibrary.Types.IEqualityComparer<T>;
 
+    procedure CheckInsertIndex(Index: Integer);
+    procedure CheckItemIndex(Index: Integer);
     function GetCount: Integer;
     function GetItem(Index: Integer): T;
     procedure SetItem(Index: Integer; const Value: T);
@@ -167,6 +169,7 @@ type
   TListEnumerator<T> = class(TInterfacedObject, MyLibrary.Collections.IEnumerator<T>)
   private
     FItems: System.Generics.Collections.TList<T>;
+    FHasCurrent: Boolean;
     FIndex: Integer;
   public
     constructor Create(Items: System.Generics.Collections.TList<T>);
@@ -212,6 +215,10 @@ end;
 
 function TListEnumerator<T>.GetCurrent: T;
 begin
+  if not FHasCurrent then
+    raise MyLibrary.Types.EInvalidOperationException.Create(
+      'The enumerator is not positioned on a value.');
+
   Result := FItems[FIndex];
 end;
 
@@ -219,7 +226,12 @@ function TListEnumerator<T>.MoveNext: Boolean;
 begin
   Result := FIndex < FItems.Count - 1;
   if Result then
+  begin
     Inc(FIndex);
+    FHasCurrent := True;
+  end
+  else
+    FHasCurrent := False;
 end;
 
 { TArrayList<T> }
@@ -236,6 +248,20 @@ begin
   inherited Create;
   FItems := System.Generics.Collections.TList<T>.Create;
   FEqualityComparer := Comparer;
+end;
+
+procedure TArrayList<T>.CheckInsertIndex(Index: Integer);
+begin
+  if (Index < 0) or (Index > FItems.Count) then
+    raise MyLibrary.Types.EArgumentOutOfRangeException.Create(
+      'Index is outside the valid range of insert positions.');
+end;
+
+procedure TArrayList<T>.CheckItemIndex(Index: Integer);
+begin
+  if (Index < 0) or (Index >= FItems.Count) then
+    raise MyLibrary.Types.EArgumentOutOfRangeException.Create(
+      'Index is outside the valid range of indexes.');
 end;
 
 destructor TArrayList<T>.Destroy;
@@ -255,7 +281,8 @@ var
   Enumerator: MyLibrary.Collections.IEnumerator<T>;
 begin
   if Values = nil then
-    Exit;
+    raise MyLibrary.Types.EArgumentNilException.Create(
+      'Values cannot be nil.');
 
   Enumerator := Values.GetEnumerator;
   while Enumerator.MoveNext do
@@ -282,6 +309,7 @@ end;
 
 procedure TArrayList<T>.Delete(Index: Integer);
 begin
+  CheckItemIndex(Index);
   FItems.Delete(Index);
 end;
 
@@ -297,6 +325,7 @@ end;
 
 function TArrayList<T>.GetItem(Index: Integer): T;
 begin
+  CheckItemIndex(Index);
   Result := FItems[Index];
 end;
 
@@ -316,6 +345,7 @@ end;
 
 procedure TArrayList<T>.Insert(Index: Integer; const Value: T);
 begin
+  CheckInsertIndex(Index);
   FItems.Insert(Index, Value);
 end;
 
@@ -336,6 +366,7 @@ end;
 
 procedure TArrayList<T>.SetItem(Index: Integer; const Value: T);
 begin
+  CheckItemIndex(Index);
   FItems[Index] := Value;
 end;
 

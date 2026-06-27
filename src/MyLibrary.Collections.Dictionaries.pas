@@ -107,6 +107,7 @@ type
     MyLibrary.Collections.IEnumerator<T>)
   private
     FEnumerator: System.Generics.Collections.TEnumerator<T>;
+    FHasCurrent: Boolean;
   public
     constructor Create(
       Enumerator: System.Generics.Collections.TEnumerator<T>);
@@ -120,6 +121,7 @@ type
   private
     FEnumerator: System.Generics.Collections.TEnumerator<
       System.Generics.Collections.TPair<TKey, TValue>>;
+    FHasCurrent: Boolean;
   public
     constructor Create(
       Dictionary: System.Generics.Collections.TDictionary<TKey, TValue>);
@@ -199,12 +201,17 @@ end;
 
 function TRtlEnumerator<T>.GetCurrent: T;
 begin
+  if not FHasCurrent then
+    raise MyLibrary.Types.EInvalidOperationException.Create(
+      'The enumerator is not positioned on a value.');
+
   Result := FEnumerator.Current;
 end;
 
 function TRtlEnumerator<T>.MoveNext: Boolean;
 begin
   Result := FEnumerator.MoveNext;
+  FHasCurrent := Result;
 end;
 
 { TDictionaryEnumerator<TKey, TValue> }
@@ -227,6 +234,10 @@ function TDictionaryEnumerator<TKey, TValue>.GetCurrent:
 var
   Pair: System.Generics.Collections.TPair<TKey, TValue>;
 begin
+  if not FHasCurrent then
+    raise MyLibrary.Types.EInvalidOperationException.Create(
+      'The enumerator is not positioned on a value.');
+
   Pair := FEnumerator.Current;
   Result := MyLibrary.Types.TPair<TKey, TValue>.Create(Pair.Key, Pair.Value);
 end;
@@ -234,6 +245,7 @@ end;
 function TDictionaryEnumerator<TKey, TValue>.MoveNext: Boolean;
 begin
   Result := FEnumerator.MoveNext;
+  FHasCurrent := Result;
 end;
 
 { TDictionaryKeys<TKey, TValue> }
@@ -342,6 +354,10 @@ end;
 procedure THashDictionary<TKey, TValue>.Add(
   const Key: TKey; const Value: TValue);
 begin
+  if FItems.ContainsKey(Key) then
+    raise MyLibrary.Types.EArgumentException.Create(
+      'The key already exists in the dictionary.');
+
   FItems.Add(Key, Value);
 end;
 
@@ -353,7 +369,8 @@ var
     MyLibrary.Collections.IEnumerator<MyLibrary.Types.TPair<TKey, TValue>>;
 begin
   if Values = nil then
-    Exit;
+    raise MyLibrary.Types.EArgumentNilException.Create(
+      'Values cannot be nil.');
 
   Enumerator := Values.GetEnumerator;
   while Enumerator.MoveNext do
@@ -403,7 +420,9 @@ end;
 
 function THashDictionary<TKey, TValue>.GetItem(const Key: TKey): TValue;
 begin
-  Result := FItems.Items[Key];
+  if not FItems.TryGetValue(Key, Result) then
+    raise MyLibrary.Types.EKeyNotFoundException.Create(
+      'The key was not found in the dictionary.');
 end;
 
 function THashDictionary<TKey, TValue>.GetKeys:
