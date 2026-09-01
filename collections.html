@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="layout layout-holy-grail" lang="en-US"
+  dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collections | MyLibrary Docs</title>
+  <meta name="description" content="A documentation sample project for Delphi" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="generator" content="DocInsight" />
+  <meta name="toc-key" content="site:docs" />
+  <meta name="uid" content="collections.md" />
+  <meta name="search-index" content="/mylibrary/_static/themes/learn/search/~root.js" />
+  <meta name="search-index" content="/mylibrary/_static/themes/learn/search/api.js" />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="icon" href="/mylibrary/favicon.ico" type="image/x-icon" sizes="any" />
+  <link rel="stylesheet" href="/mylibrary/_static/themes/learn/assets/learn.e8b3582e511e.css" />
+  <script src="/mylibrary/_static/themes/learn/toc/docs.js"></script>
+  <script src="/mylibrary/_static/themes/learn/assets/learn.9968374f02de.js" defer></script>
+</head>
+
+<body id="body" class="layout-body">
+
+  <header id="header" class="layout-body-header background-color-body-medium">
+    <div class="site-header display-flex align-items-center ">
+      <a href="/mylibrary/" class="site-header-brand padding-left-none">
+        <span>MyLibrary Docs</span>
+      </a>
+
+      <nav aria-label="site header nav" class="site-header-nav display-flex align-items-center gap-xxs">
+        <ul class="display-none display-flex-tablet justify-content-space-between gap-none">
+          <li>
+            <a class="site-header-button font-weight-semibold" href="/mylibrary/"><span>Guide</span></a>
+          </li>
+          <li>
+            <a class="site-header-button" href="/mylibrary/api/mylibrary"><span>API Reference</span></a>
+          </li>
+        </ul>
+
+        <form role="search" aria-label="Search" id="search-container" class="margin-left-xxs margin-left-lg-tablet">
+          <div class="autocomplete display-block">
+            <div class="position-relative">
+              <input id="search-input" class="input input-icon input-sm" type="text" placeholder="Search by title"
+                role="combobox" aria-label="Search by title" aria-autocomplete="list" aria-haspopup="listbox"
+                aria-controls="search-suggestions" aria-expanded="false" autocomplete="off">
+              <span class="icon search" aria-hidden="true"></span>
+            </div>
+            <ul role="listbox" id="search-suggestions"
+              class="autocomplete-suggestions is-vertically-scrollable padding-xxs" aria-label="Suggestions" aria-live="polite" hidden>
+            </ul>
+          </div>
+        </form>
+
+        <div class="display-flex flex-wrap-nowrap margin-left-auto">
+          <button id="color-mode-toggle" type="button" title="Switch to dark mode" aria-label="Switch to dark mode"
+            aria-pressed="false" class="button button-clear">
+            <span class="icon color-mode" aria-hidden="true">
+            </span>
+          </button>
+          <a aria-label="Visit repository" class="button button-clear" href="https://github.com/docinsight/mylibrary" data-external="true" target="_blank" rel="noopener">
+            <span class="icon repository github" aria-hidden="true">
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="layout-body-menu" class="layout-body-menu border-right display-flex background-color-body-medium">
+    <div id="left-container"
+      class="left-container display-none display-block-tablet padding-inline-sm padding-bottom-sm width-full">
+      <nav id="affixed-left-container" class="margin-top-sm-tablet position-sticky display-flex flex-direction-column"
+        aria-label="Primary">
+      </nav>
+    </div>
+  </section>
+
+  <main id="main" role="main" class="layout-body-main">
+    <article class="reading-width margin-inline-auto padding-sm padding-top-none padding-top-sm-tablet">
+      <div id="article-header"
+        class="align-items-center display-flex background-color-body margin-bottom-xs display-none-print">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumbs">
+            <li
+              class="breadcrumbs-item">
+              <a href="/mylibrary/">Guide</a>
+            </li>
+          </ol>
+        </nav>
+
+        <div id="page-actions" class="display-flex flex-wrap-nowrap margin-left-auto">
+        </div>
+      </div>
+
+        <div class="content">
+        <div class="heading-wrapper" data-heading-level="h1">
+          <a class="anchor-link" href="/mylibrary/collections" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+          <h1>Collections</h1>
+        </div>
+
+        <div id="doc-outline-mobile-slot" class="is-hidden-desktop"></div>
+
+        <p>The collections framework provides generic interfaces and implementations for common collection patterns in Delphi.</p>  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#choosing-a-collection" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="choosing-a-collection">Choosing a collection</h2>
+  </div>
+<p>Use <a href="/mylibrary/api/mylibrary.collections/ienumerable-1">IEnumerable&lt;T&gt;</a> when callers only need to iterate values. Use <a href="/mylibrary/api/mylibrary.collections/ireadonlycollection-1">IReadOnlyCollection&lt;T&gt;</a> when they also need <a href="/mylibrary/api/mylibrary.collections/ireadonlycollection-1.count">IReadOnlyCollection&lt;T&gt;.Count</a> or <a href="/mylibrary/api/mylibrary.collections/ireadonlycollection-1.contains">IReadOnlyCollection&lt;T&gt;.Contains</a>. Use <a href="/mylibrary/api/mylibrary.collections/ilist-1">IList&lt;T&gt;</a> for an ordered, mutable collection with indexed access.</p><p>Use the <a href="/mylibrary/api/mylibrary.collections/idictionary-2">IDictionary&lt;TKey,TValue&gt;</a> interface when callers need keyed lookup. Prefer the <a href="/mylibrary/api/mylibrary.collections/tcollections">TCollections</a> factory methods when creating collection instances.</p><p>Use <a href="/mylibrary/api/mylibrary.collections/tcollections.createobjectlist-1">TCollections.CreateObjectList&lt;T&gt;</a> for a list that can own object lifetimes. When ownership is enabled, removing or deleting an object, clearing the list, or destroying the list frees the affected objects. Assigning a new value through the indexed <a href="/mylibrary/api/mylibrary.collections/ilist-1.items">IList&lt;T&gt;.Items</a> property does not free the object being replaced.</p>  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#comparers" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="comparers">Comparers</h2>
+  </div>
+<p>The equality comparer passed to <a href="/mylibrary/api/mylibrary.collections/tcollections.createlist">TCollections.CreateList&lt;T&gt;</a> controls <a href="/mylibrary/api/mylibrary.collections/ireadonlycollection-1.contains">IReadOnlyCollection&lt;T&gt;.Contains</a>, <a href="/mylibrary/api/mylibrary.collections/ilist-1.indexof">IList&lt;T&gt;.IndexOf</a>, and <a href="/mylibrary/api/mylibrary.collections/icollection-1.remove">ICollection&lt;T&gt;.Remove</a>. It does not control sorting; pass an <a href="/mylibrary/api/mylibrary.types/icomparer-1">IComparer&lt;T&gt;</a> or <a href="/mylibrary/api/mylibrary.types/tcomparison-1">TComparison&lt;T&gt;</a> to <a href="/mylibrary/api/mylibrary.collections/ilist-1.sort">IList&lt;T&gt;.Sort</a> for a custom order.</p><p>The equality comparer passed to <a href="/mylibrary/api/mylibrary.collections/tcollections.createdictionary">TCollections.CreateDictionary&lt;TKey,TValue&gt;</a> applies to keys. Dictionary value comparisons use the default equality comparer for the value type.</p>  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#dictionary-pair-operations" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="dictionary-pair-operations">Dictionary pair operations</h2>
+  </div>
+<p>The collection members inherited by <a href="/mylibrary/api/mylibrary.collections/idictionary-2">IDictionary&lt;TKey,TValue&gt;</a> operate on <a href="/mylibrary/api/mylibrary.types/tpair-2">TPair&lt;TKey,TValue&gt;</a> values. <a href="/mylibrary/api/mylibrary.collections/ireadonlycollection-1.contains">IReadOnlyCollection&lt;T&gt;.Contains</a> and <a href="/mylibrary/api/mylibrary.collections/icollection-1.remove">ICollection&lt;T&gt;.Remove</a> require both the key and value to match. <a href="/mylibrary/api/mylibrary.collections/icollection-1.add">ICollection&lt;T&gt;.Add</a> rejects a pair whose key already exists, while assigning through <a href="/mylibrary/api/mylibrary.collections/idictionary-2.items">IDictionary&lt;TKey,TValue&gt;.Items</a> adds or replaces a value.</p><p>The <a href="/mylibrary/api/mylibrary.collections/idictionary-2.keys">IDictionary&lt;TKey,TValue&gt;.Keys</a> and <a href="/mylibrary/api/mylibrary.collections/idictionary-2.values">IDictionary&lt;TKey,TValue&gt;.Values</a> properties return live read-only views that reflect later changes to the dictionary.</p>  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#performance" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="performance">Performance</h2>
+  </div>
+<p>Choose the collection that matches the access pattern: lists for ordered traversal and indexed access, and dictionaries for keyed lookup.</p>
+      </div>
+
+    </article>
+  </main>
+
+  <aside id="layout-body-aside" class="layout-body-aside" aria-label="Page Outline" hidden>
+    <div id="additional-resources" class="right-container padding-sm display-none display-block-desktop height-full"
+      role="complementary" aria-label="Additional resources">
+      <div id="affixed-right-container" class="position-sticky"></div>
+    </div>
+  </aside>
+
+
+  <footer id="footer" class="layout-body-footer footer-layout" role="contentinfo">
+    <p class="color-text-subtle">Copyright © DevJet Software.<br>Built with <a href="https://docinsight.dev/" data-external="true">DocInsight</a>. View the <a href="https://github.com/docinsight/mylibrary" data-external="true">https://github.com/docinsight/mylibrary</a>.</p>
+  </footer>
+
+</body>
+
+</html>

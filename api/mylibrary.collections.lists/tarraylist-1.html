@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="layout layout-holy-grail" lang="en-US"
+  dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TArrayList&lt;T&gt; Class | MyLibrary Docs</title>
+  <meta name="description" content="A documentation sample project for Delphi" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="generator" content="DocInsight" />
+  <meta name="toc-key" content="site:api:project/mylibrary" />
+  <meta name="uid" content="mylibrary.collections.lists/tarraylist`1" />
+  <meta name="search-index" content="/mylibrary/_static/themes/learn/search/~root.js" />
+  <meta name="search-index" content="/mylibrary/_static/themes/learn/search/api.js" />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="icon" href="/mylibrary/favicon.ico" type="image/x-icon" sizes="any" />
+  <link rel="stylesheet" href="/mylibrary/_static/themes/learn/assets/learn.e8b3582e511e.css" />
+  <script src="/mylibrary/_static/themes/learn/toc/api-project~2fmylibrary.js"></script>
+  <script src="/mylibrary/_static/themes/learn/assets/learn.9968374f02de.js" defer></script>
+</head>
+
+<body id="body" class="layout-body">
+
+  <header id="header" class="layout-body-header background-color-body-medium">
+    <div class="site-header display-flex align-items-center ">
+      <a href="/mylibrary/" class="site-header-brand padding-left-none">
+        <span>MyLibrary Docs</span>
+      </a>
+
+      <nav aria-label="site header nav" class="site-header-nav display-flex align-items-center gap-xxs">
+        <ul class="display-none display-flex-tablet justify-content-space-between gap-none">
+          <li>
+            <a class="site-header-button" href="/mylibrary/"><span>Guide</span></a>
+          </li>
+          <li>
+            <a class="site-header-button font-weight-semibold" href="/mylibrary/api/mylibrary"><span>API Reference</span></a>
+          </li>
+        </ul>
+
+        <form role="search" aria-label="Search" id="search-container" class="margin-left-xxs margin-left-lg-tablet">
+          <div class="autocomplete display-block">
+            <div class="position-relative">
+              <input id="search-input" class="input input-icon input-sm" type="text" placeholder="Search by title"
+                role="combobox" aria-label="Search by title" aria-autocomplete="list" aria-haspopup="listbox"
+                aria-controls="search-suggestions" aria-expanded="false" autocomplete="off">
+              <span class="icon search" aria-hidden="true"></span>
+            </div>
+            <ul role="listbox" id="search-suggestions"
+              class="autocomplete-suggestions is-vertically-scrollable padding-xxs" aria-label="Suggestions" aria-live="polite" hidden>
+            </ul>
+          </div>
+        </form>
+
+        <div class="display-flex flex-wrap-nowrap margin-left-auto">
+          <button id="color-mode-toggle" type="button" title="Switch to dark mode" aria-label="Switch to dark mode"
+            aria-pressed="false" class="button button-clear">
+            <span class="icon color-mode" aria-hidden="true">
+            </span>
+          </button>
+          <a aria-label="Visit repository" class="button button-clear" href="https://github.com/docinsight/mylibrary" data-external="true" target="_blank" rel="noopener">
+            <span class="icon repository github" aria-hidden="true">
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="layout-body-menu" class="layout-body-menu border-right display-flex background-color-body-medium">
+    <div id="left-container"
+      class="left-container display-none display-block-tablet padding-inline-sm padding-bottom-sm width-full">
+      <nav id="affixed-left-container" class="margin-top-sm-tablet position-sticky display-flex flex-direction-column"
+        aria-label="Primary">
+      </nav>
+    </div>
+  </section>
+
+  <main id="main" role="main" class="layout-body-main">
+    <article class="reading-width margin-inline-auto padding-sm padding-top-none padding-top-sm-tablet">
+      <div id="article-header"
+        class="align-items-center display-flex background-color-body margin-bottom-xs display-none-print">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumbs">
+            <li
+              class="breadcrumbs-item">
+              <a href="/mylibrary/api/mylibrary">API Reference</a>
+            </li>
+            <li
+              class="breadcrumbs-item">
+              <a href="/mylibrary/api/mylibrary">MyLibrary</a>
+            </li>
+            <li
+              class="breadcrumbs-item">
+              <a href="/mylibrary/api/mylibrary.collections.lists">MyLibrary.Collections.Lists</a>
+            </li>
+          </ol>
+        </nav>
+
+        <div id="page-actions" class="display-flex flex-wrap-nowrap margin-left-auto">
+        </div>
+      </div>
+
+        <div class="content">
+        <div class="heading-wrapper" data-heading-level="h1">
+          <a class="anchor-link" href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+          <h1>TArrayList&lt;T&gt; Class</h1>
+        </div>
+
+        <div id="doc-outline-mobile-slot" class="is-hidden-desktop"></div>
+
+        <div class="heading-wrapper" data-heading-level="h2">
+  <a class="anchor-link" href="#definition" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+  <h2 id="definition">Definition</h2>
+</div>
+
+<div class="metadata">
+  <dl class="attributeList">
+    <dt>Unit:</dt>
+    <dd>
+      <span class="break-text">
+        <a href="/mylibrary/api/mylibrary.collections.lists">MyLibrary.Collections.Lists</a>
+      </span>
+    </dd>
+  </dl>
+  <dl class="attributeList">
+    <dt>Package:</dt>
+    <dd>
+      <span class="break-text">
+        <a href="/mylibrary/api/mylibrary">MyLibrary</a>
+      </span>
+    </dd>
+  </dl>
+</div>
+
+
+<div class="summaryHolder">
+  <div class="summary clearFix has-text-wrap">
+    <p>Provides a resizable array-backed implementation of
+  <a href="/mylibrary/api/mylibrary.collections/ilist-1">IList&lt;T&gt;</a>.</p>
+  </div>
+</div>
+
+
+<div class="code-block-header margin-top-sm">
+  <span class="code-block-header-language">Delphi</span>
+  <div class="code-block-header-action-bar">
+    <button type="button" class="button button-sm action inner-focus display-none-print">
+      <span class="icon copy has-text-subtle" aria-hidden="true">
+      </span>
+      <span>Copy</span>
+    </button>
+  </div>
+</div>
+<pre class="wrap declaration has-inner-focus"><code class="language-Delphi" dir="ltr">TArrayList&lt;T&gt; = class(TInterfacedObject, IList&lt;T&gt;)</code></pre>
+
+<h4 class="propertyInfoTitle stack">Type Parameters</h4>
+<div class="propertyInfo">
+  <dl class="parameterList">
+    <dt>T</dt>
+    <dd></dd>
+  </dl>
+  <p>The type of values in the list.</p>
+</div>
+
+
+
+
+
+<dl class="attributeList stack">
+  <dt>Inheritance</dt>
+  <dd>
+    <div class="pdlHolder">
+      <div class="pdl">
+        TInterfacedObject
+      </div>
+      <span>TArrayList&lt;T&gt;</span>
+    </div>
+  </dd>
+</dl>
+
+<dl id="derived" class="attributeList stack">
+  <dt>Derived</dt>
+  <dd>
+    <div>
+      <span class="break-text">
+        <a href="/mylibrary/api/mylibrary.collections.lists/tobjectarraylist-1" data-linktype="relative-path">TObjectArrayList&lt;T&gt;</a>
+      </span>
+    </div>
+  </dd>
+</dl>
+
+<dl class="attributeList stack">
+  <dt>Implements</dt>
+  <dd>
+    <div class="cdlHolder">
+      <span class="cdl">
+        <span class="break-text">
+          <a href="/mylibrary/api/mylibrary.collections/ilist-1" data-linktype="relative-path">IList&lt;T&gt;</a>
+        </span>
+      </span>
+    </div>
+  </dd>
+</dl>
+
+
+<div class="heading-wrapper" data-heading-level="h2">
+  <a class="anchor-link" href="#remarks" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+  <h2 id="remarks">Remarks</h2>
+</div>
+<p>This class is the default implementation returned by
+  <a href="/mylibrary/api/mylibrary.collections/tcollections">TCollections</a>.<code>CreateList&lt;T&gt;</code>.</p>
+
+
+
+
+<section class="member-group">
+  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#constructors" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="constructors">Constructors</h2>
+  </div>
+  <div class="has-inner-focus">
+    <table class="table table-sm margin-top-none">
+      <tbody>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.create#create()" class="cref">Create</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            <p>Initializes a new instance of the <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1">TArrayList&lt;T&gt;</a> class.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.create#create(iequalitycomparer(t))" class="cref">Create(IEqualityComparer&lt;T&gt;)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            <p>Initializes a new instance of the <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1">TArrayList&lt;T&gt;</a> class
+  with an equality comparer.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.destroy" class="cref">Destroy</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            <p>Releases the resources used by the list.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="member-group">
+  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#properties" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="properties">Properties</h2>
+  </div>
+  <div class="has-inner-focus">
+    <table class="table table-sm margin-top-none">
+      <tbody>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.count" class="cref">Count</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.items" class="cref">Items[Integer]</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="member-group">
+  <div class="heading-wrapper" data-heading-level="h2">
+    <a class="anchor-link" href="#methods" aria-label="Link to this heading" title="Link to this heading">
+  <span class="icon link" aria-hidden="true"></span>
+</a>
+    <h2 id="methods">Methods</h2>
+  </div>
+  <div class="has-inner-focus">
+    <table class="table table-sm margin-top-none">
+      <tbody>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.add" class="cref">Add(T)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.addrange#addrange(ienumerable(t))" class="cref">AddRange(IEnumerable&lt;T&gt;)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.addrange#addrange(array-of-t)" class="cref">AddRange(array of T)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.clear" class="cref">Clear</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.contains" class="cref">Contains(T)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.delete" class="cref">Delete(Integer)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.getenumerator" class="cref">GetEnumerator</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.indexof" class="cref">IndexOf(T)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.insert" class="cref">Insert(Integer, T)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.isempty" class="cref">IsEmpty</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.remove" class="cref">Remove(T)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.sort#sort()" class="cref">Sort</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.sort#sort(icomparer(t))" class="cref">Sort(IComparer&lt;T&gt;)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="/mylibrary/api/mylibrary.collections.lists/tarraylist-1.sort#sort(tcomparison(t))" class="cref">Sort(TComparison&lt;T&gt;)</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+      </div>
+
+    </article>
+  </main>
+
+  <aside id="layout-body-aside" class="layout-body-aside" aria-label="Page Outline" hidden>
+    <div id="additional-resources" class="right-container padding-sm display-none display-block-desktop height-full"
+      role="complementary" aria-label="Additional resources">
+      <div id="affixed-right-container" class="position-sticky"></div>
+    </div>
+  </aside>
+
+
+  <footer id="footer" class="layout-body-footer footer-layout" role="contentinfo">
+    <p class="color-text-subtle">Copyright © DevJet Software.<br>Built with <a href="https://docinsight.dev/" data-external="true">DocInsight</a>. View the <a href="https://github.com/docinsight/mylibrary" data-external="true">https://github.com/docinsight/mylibrary</a>.</p>
+  </footer>
+
+</body>
+
+</html>
